@@ -52,7 +52,7 @@ server.get('/api/todos', function (req, res) {
 /**
  * Create a single todo
  */
-server.post('api/todos', function (req, res) {
+server.post('/api/todos', function (req, res) {
     Todo.create({
         text: req.body.text,
         done: false
@@ -69,7 +69,7 @@ server.post('api/todos', function (req, res) {
 /**
  * Delete a single todo
  */
-server.delete('api/todos/:todoId', function (req, res) {
+server.delete('/api/todos/:todoId', function (req, res) {
     Todo.remove({
         _id: req.params.todoId
     }, function (err, todo) {
