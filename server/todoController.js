@@ -1,7 +1,6 @@
 /**
- * RESTful API routes for todo model
+ * RESTful API Routes and controllers for todo model
  */
-// RESTful API routes
 
 function todoApi(server, todoModel) {
 
@@ -57,6 +56,7 @@ function todoApi(server, todoModel) {
 	}
 
 
+	// RESTful API routes
 	server.get('/api/todos', getAllTodos);
 	server.post('/api/todos', createSingleTodo);
 	server.delete('/api/todos/:todoId', deleteSingleTodo);
