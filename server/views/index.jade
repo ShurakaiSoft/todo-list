@@ -1,0 +1,29 @@
+doctype html
+html(ng-app="shurakaiTodo")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Shurakai's Todo App
+    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/todo.css")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js")
+    script(src="core.js")
+
+  body(ng-controller="mainController")
+    div.container
+      header.jumbotron.text-center
+        h1 Shurakai's Todo App&nbsp;
+          span.label.label-info {{ todos.length }}
+      div#todo-list.row
+        div.col-sm-4.col-sm-offset-4
+          div.checkbox(ng-repeat="todo in todos")
+            label
+              input(type="checkbox", ng-click="deleteTodo(todo._id)")
+              | {{ todo.text }}
+      div#todo-form.row
+        div.col-sm-8.col-sm-offset-2.text-center
+          form
+            div.form-group
+              input.form-control.input-lg.text-center(type="text", placeholder="new todo", ng-model="formData.text")
+            button(type="submit", class="btn btn-primary btn-lg" ng-click="createTodo()") Add
+
